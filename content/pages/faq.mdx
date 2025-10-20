@@ -1,0 +1,28 @@
+---
+title: Frequently Asked Questions
+---
+
+import FaqList, { FaqItem } from '@/app/components/FaqList';
+import settings from '@/content/data/settings.json';
+
+export const faqs: FaqItem[] = [
+  {
+    question: 'Do you accept medical aid?',
+    answer: 'Yes, selected medical aids are accepted. Please contact reception for the latest list.',
+    answerText: 'Yes, selected medical aids are accepted. Please contact reception for the latest list.'
+  },
+  {
+    question: 'Can I get prescriptions online?',
+    answer: 'Virtual consults may be available where clinically appropriate and lawful. A clinician determines suitability.',
+    answerText: 'Virtual consults may be available where clinically appropriate and lawful. A clinician determines suitability.'
+  },
+  {
+    question: 'How do I book an appointment?',
+    answer: 'Use the online booking link or call reception during office hours.',
+    answerText: 'Use the online booking link or call reception during office hours.'
+  }
+];
+
+# Frequently Asked Questions
+
+<FaqList items={faqs} enableSchema={Boolean(settings.analytics?.schemaEnabled)} />

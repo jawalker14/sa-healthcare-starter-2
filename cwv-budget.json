@@ -1,0 +1,19 @@
+{
+  "budget": {
+    "timing": {
+      "firstContentfulPaint": 1000,
+      "largestContentfulPaint": 2500,
+      "cumulativeLayoutShift": 0.1,
+      "firstInputDelay": 100
+    },
+    "resourceSizes": {
+      "css": 150000,
+      "js": 300000,
+      "images": 500000
+    },
+    "performance": {
+      "maxTotalBlockingTime": 300,
+      "maxServerResponseTime": 500
+    }
+  }
+}

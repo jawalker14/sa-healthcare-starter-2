@@ -1,0 +1,21 @@
+{
+  "name": "SA Healthcare Starter",
+  "short_name": "SA Health",
+  "description": "A no-CMS website starter for South African healthcare practices, aligned with HPCSA and POPIA.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4A90E2",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+---
+title: Our Team
+---
+
+import TeamList, { TeamMember } from '@/app/components/TeamList';
+
+export const team: TeamMember[] = [
+  {
+    name: 'Dr Jane Doe',
+    role: 'General Practitioner',
+    credentials: 'MBChB (UCT)',
+    registrationNumber: 'HPCSA MP 1234567',
+    avatarUrl: '/images/team/jane.jpg',
+    bio: 'Evidence-based primary care with a focus on prevention.'
+  },
+  {
+    name: 'Siphiwe Nkosi',
+    role: 'Physiotherapist',
+    credentials: 'BSc Physio (Wits)',
+    registrationNumber: 'HPCSA PT 7654321',
+    avatarUrl: '/images/team/siphiwe.jpg',
+    bio: 'Rehabilitation and movement-focused therapy across age groups.'
+  }
+];
+
+# Meet the Team
+
+<TeamList items={team} />

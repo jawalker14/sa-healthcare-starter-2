@@ -1,0 +1,38 @@
+{
+  "contacts": {
+    "phone": "+27 123 456 789",
+    "email": "info@healthcarepractice.co.za"
+  },
+  "address": {
+    "street": "123 Health St",
+    "city": "Cape Town",
+    "postalCode": "8000",
+    "province": "Western Cape",
+    "country": "South Africa"
+  },
+  "hours": {
+    "monday": "08:00 - 17:00",
+    "tuesday": "08:00 - 17:00",
+    "wednesday": "08:00 - 17:00",
+    "thursday": "08:00 - 17:00",
+    "friday": "08:00 - 17:00",
+    "saturday": "09:00 - 13:00",
+    "sunday": "Closed"
+  },
+  "social": {
+    "facebook": "https://facebook.com/healthcarepractice",
+    "twitter": "https://twitter.com/healthcarepractice",
+    "instagram": "https://instagram.com/healthcarepractice"
+  },
+  "booking": {
+    "url": "https://healthcarepractice.co.za/book",
+    "enabled": true
+  },
+  "analytics": {
+  "googleAnalytics": "",
+  "schemaEnabled": true,
+  "gscVerification": "",
+  "enableGA4": false,
+  "enableGSC": false
+  }
+}
