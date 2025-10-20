@@ -9,8 +9,9 @@ import MapLink from '@/app/components/MapLink';
 import WhatsAppCTA from '@/app/components/WhatsAppCTA';
 import settings from '@/content/data/settings.json';
 
-export default async function DynamicPage({ params }: { params: { slug?: string[] } }) {
-  const slugPath = !params.slug || params.slug.length === 0 ? 'index' : params.slug.join('/');
+export default async function DynamicPage({ params }: { params: Promise<{ slug?: string[] }> }) {
+  const { slug } = await params;
+  const slugPath = !slug || slug.length === 0 ? 'index' : slug.join('/');
   let data: Awaited<ReturnType<typeof getMdxContent>> | null = null;
   try {
     data = await getMdxContent(slugPath);

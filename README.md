@@ -9,6 +9,76 @@ This is a Next.js starter template designed for South African healthcare practic
 - **Tailwind CSS**: Utilize Tailwind for styling, ensuring a responsive and modern design.
 - **Compliance**: Includes microcopy for HPCSA and POPIA compliance.
 
+## UI Style Guide
+
+This starter ships with a minimal, premium aesthetic suitable for healthcare, emphasizing clarity, calm, and accessibility.
+
+### Theme tokens
+
+- Font: Montserrat (via next/font). Base sizing ~17px for comfortable reading.
+- Palette:
+   - brand.navy: #0B1F3B (primary)
+   - brand.slate: #334155 with slateLight #64748B for muted text
+   - brand.white: #FFFFFF
+- Radii: rounded-2xl default for surfaces; subtle rounded-xl on controls.
+- Shadows: soft, soft-lg for gentle elevation without harsh blur.
+
+Configured in `tailwind.config.ts` with utilities like:
+- `.focus-ring` for accessible focus outlines
+- `.card-base` shared card surface
+- `.container-x` consistent page gutters
+
+### Components
+
+All in `app/components/ui/` and also available inside MDX via `app/mdx-components.tsx`:
+- Hero: page-leading header with optional eyebrow, subtitle, and actions.
+- Section: vertical rhythm and container; handles title/subtitle.
+- Card: surface with soft shadow and subtle hover lift (reduced-motion aware).
+- CTA: buttons/links in primary, secondary, and ghost variants with AA contrast.
+
+### Accessibility
+
+- Skip to content link becomes visible on focus and targets `#main-content`.
+- Focus styles use high-contrast ring on brand navy with offset for visibility.
+- Color contrast meets WCAG AA for text and interactive states in light mode.
+- Motion respects `prefers-reduced-motion` to remove nonessential animation.
+
+### Usage examples
+
+Hero + CTAs:
+
+```
+import Hero from '@/app/components/ui/Hero';
+import CTA from '@/app/components/ui/CTA';
+
+<Hero eyebrow="Welcome" title="Your health, our priority" subtitle="Compassionate, evidence-based care for the whole family.">
+   <CTA href="/contact" variant="primary">Book an appointment</CTA>
+   <CTA href="/services" variant="secondary">Explore services</CTA>
+   <CTA href="/about" variant="ghost">Meet the team</CTA>
+</Hero>
+```
+
+Section + Card grid:
+
+```
+import Section from '@/app/components/ui/Section';
+import Card from '@/app/components/ui/Card';
+
+<Section title="Our services" subtitle="Comprehensive primary care and preventative medicine.">
+   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <Card title="General Checkups" eyebrow="Primary Care">Routine assessments and health optimization.</Card>
+      <Card title="Women’s Health">Cervical screening, contraception, and counseling.</Card>
+      <Card title="Chronic Care">Evidence-based management plans and follow-ups.</Card>
+   </div>
+  
+</Section>
+```
+
+### Notes
+
+- Ensure Montserrat is loaded via `(site)/layout.tsx` or the shared `Layout` component (pre-wired with next/font).
+- For body copy in MDX, `.prose` styles are available via Tailwind Typography.
+
 ## Project Structure
 
 ```
