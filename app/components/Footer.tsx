@@ -1,5 +1,6 @@
 import React from 'react';
 import Compliance from '../../content/partials/compliance.mdx';
+import settings from '@/content/data/settings.json';
 
 const Footer: React.FC = () => {
     return (
@@ -9,7 +10,7 @@ const Footer: React.FC = () => {
                     <Compliance />
                 </div>
                 <div className="mt-6 flex flex-col items-center gap-2 text-sm text-white/80">
-                    <p>&copy; {new Date().getFullYear()} Your Practice Name. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} {settings.practiceName}. All rights reserved.</p>
                     <p className="flex gap-3">
                         <a href="/privacy-policy" className="underline underline-offset-4 hover:text-white focus-ring">Privacy Policy</a>
                         <span aria-hidden="true">·</span>
