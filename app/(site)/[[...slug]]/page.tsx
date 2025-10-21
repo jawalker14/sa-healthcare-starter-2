@@ -7,6 +7,7 @@ import TeamList from '@/app/components/TeamList';
 import FaqList from '@/app/components/FaqList';
 import MapLink from '@/app/components/MapLink';
 import WhatsAppCTA from '@/app/components/WhatsAppCTA';
+import ContactForm from '@/app/components/forms/ContactForm';
 import settings from '@/content/data/settings.json';
 
 export default async function DynamicPage({ params }: { params: Promise<{ slug?: string[] }> }) {
@@ -24,6 +25,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug?:
     FaqList: (props: any) => <FaqList enableSchema={Boolean(settings.analytics?.schemaEnabled)} {...props} />,
     MapLink,
     WhatsAppCTA,
+  ContactForm,
   } as const;
 
   return (
