@@ -245,5 +245,15 @@ Milestones are gated by content handover and approvals. Larger changes or new fe
 
 Optional: run `npm run check:compliance` to scan content for prohibited phrases.
 
+## Verification
+
+Run a quick feature audit:
+
+```
+npm run audit:template
+```
+
+The script prints a ✅/❌ list for key files and exits 0 (informational).
+
 
 This project is licensed under the MIT License. See the LICENSE file for details.
