@@ -10,6 +10,7 @@ import SkipToContent from '../components/SkipToContent';
 import ConsentNotice from '../components/ConsentNotice';
 import { AnalyticsScripts, GoogleSiteVerificationMeta } from '../components/analytics/AnalyticsHead';
 import { Montserrat } from 'next/font/google';
+import WhatsAppCTA from '../components/WhatsAppCTA';
 
 const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', weight: ['300','400','500','600','700'] });
 
@@ -48,6 +49,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <ConsentNotice />
+        {process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ? (
+          <WhatsAppCTA phone={process.env.NEXT_PUBLIC_WHATSAPP_NUMBER} />
+        ) : null}
         <AnalyticsScripts />
       </body>
     </html>
