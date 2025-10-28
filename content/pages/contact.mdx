@@ -3,6 +3,9 @@ title: "Contact Us"
 description: "Get in touch with our healthcare practice for inquiries and appointments."
 ---
 
+import LocalBusinessSchema from '@/app/components/seo/LocalBusinessSchema'
+import settings from '@/content/data/settings.json'
+
 Welcome to our contact page. If you have questions about our services, would like to book an appointment, or need assistance, please use the form below and our team will respond shortly.
 
 <MapEmbed title="Our location" />
@@ -12,3 +15,19 @@ Welcome to our contact page. If you have questions about our services, would lik
 <ContactForm />
 
 If you prefer, you can also reach us by phone or email as listed in the footer. We respect your privacy and handle your information in line with POPIA.
+
+<LocalBusinessSchema
+	type="MedicalClinic"
+	name={settings.practiceName}
+	telephone={settings.contacts.phone}
+	url={process.env.NEXT_PUBLIC_SITE_URL}
+	address={{
+		streetAddress: settings.address.street,
+		addressLocality: settings.address.city,
+		addressRegion: settings.address.province,
+		postalCode: settings.address.postalCode,
+		addressCountry: settings.address.country,
+	}}
+	sameAs={[settings.social.facebook, settings.social.twitter, settings.social.instagram].filter(Boolean)}
+	openingHours={[`Mo-Fr ${settings.hours.monday}`, `Sa ${settings.hours.saturday}`]}
+/>
