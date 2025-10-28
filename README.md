@@ -208,6 +208,22 @@ The application includes a health check route at `/health` that returns a JSON r
 
 Ensure that all content adheres to HPCSA and POPIA regulations. The compliance microcopy can be found in `content/partials/compliance.mdx`.
 
+### HPCSA Compliance Checklist
+
+- Avoid superlatives or guarantees (e.g., “best”, “#1”, “guaranteed”, “miracle”).
+- Do not promise outcomes or cures; do not use “before and after” or testimonials.
+- No inducements such as “free consultation” or “lowest price”.
+- Provide balanced, factual information; describe suitability and limitations.
+- Ensure POPIA-aligned handling of personal information.
+
+You can run an automated check locally:
+
+```
+npm run check:compliance
+```
+
+The script scans `content/**/*.mdx` and reports file:line for flagged terms.
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
