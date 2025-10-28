@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
   "lint": "eslint .",
-  "check:compliance": "node scripts/check-compliance.mjs"
+  "check:compliance": "node scripts/check-compliance.mjs",
+  "audit:template": "node scripts/audit-template.mjs"
   },
   "dependencies": {
     "@mdx-js/react": "latest",
