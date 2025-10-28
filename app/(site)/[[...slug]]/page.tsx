@@ -11,6 +11,7 @@ import ContactForm from '@/app/components/forms/ContactForm';
 import Section from '@/app/components/ui/Section';
 import Card from '@/app/components/ui/Card';
 import settings from '@/content/data/settings.json';
+import MapEmbed from '@/app/components/map/MapEmbed';
 
 export default async function DynamicPage({ params }: { params: Promise<{ slug?: string[] }> }) {
   const { slug } = await params;
@@ -30,6 +31,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug?:
   ContactForm,
   Section,
   Card,
+  MapEmbed,
   } as const;
 
   return (
