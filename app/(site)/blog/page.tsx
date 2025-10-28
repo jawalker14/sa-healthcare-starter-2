@@ -1,12 +1,22 @@
+// Why:
+// - Add canonical and OG/Twitter metadata for blog index
+// - Align container classes with design tokens
 import React from 'react';
+import type { Metadata } from 'next';
 import { getAllPosts } from '@/lib/mdx';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Resources',
+  description: 'Articles and updates from the practice.',
+  openGraph: { type: 'website' },
+};
 
 const BlogPage = async () => {
   const posts = await getAllPosts();
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container-x py-8">
       <h1 className="text-3xl font-bold mb-6">Resources</h1>
       {posts.length === 0 ? (
         <p>No posts yet.</p>
