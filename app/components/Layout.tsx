@@ -1,3 +1,7 @@
+// Why:
+// - Provide a consistent page frame when used inside non-App Router contexts/components
+// - Ensure base background and spacing with container widths
+// - Avoid font CLS by relying on next/font (still included for safety here)
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
@@ -9,11 +13,13 @@ const montserrat = Montserrat({ subsets: ['latin'], display: 'swap', weight: ['3
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
-        <div className={`flex flex-col min-h-screen ${montserrat.className}`}>
+        <div className={`flex min-h-screen flex-col bg-vv-bg text-brand-slate ${montserrat.className}`}>
             <SkipToContent />
             <Header />
             <main id="main-content" className="flex-grow">
-                {children}
+                <div className="container-x py-8 sm:py-10">
+                    {children}
+                </div>
             </main>
             <Footer />
             <ConsentNotice />
