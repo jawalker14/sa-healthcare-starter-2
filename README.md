@@ -225,5 +225,25 @@ npm run check:compliance
 The script scans `content/**/*.mdx` and reports file:line for flagged terms.
 
 ## License
+## Scope, Revisions & Timeline
+
+This template is designed for fast, compliant deployments. A typical engagement includes:
+
+- Scope: setup, brand polish, content entry, booking/maps integration, SEO basics.
+- Revisions: up to 2 rounds of copy/layout refinements within scope.
+- Timeline: approx. 10–14 business days, dependent on content approvals.
+
+Milestones are gated by content handover and approvals. Larger changes or new features may extend timelines.
+
+## How to demo this template
+
+1. Prepare `.env.local` with any available IDs (Calendly, GA4, GSC, WhatsApp, Place ID).
+2. Update `content/data/settings.json` with practice name, contacts, and address.
+3. Run locally and review pages at `/`, `/services`, `/contact`, `/blog`.
+4. Test booking (iframe or mailto fallback) and maps embed.
+5. Inspect SEO: View source on a page with frontmatter Title/Description; check OG/Twitter via social sharing debuggers.
+
+Optional: run `npm run check:compliance` to scan content for prohibited phrases.
+
 
 This project is licensed under the MIT License. See the LICENSE file for details.
