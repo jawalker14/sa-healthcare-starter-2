@@ -195,6 +195,8 @@ Wiring:
 - GA4 is injected via `app/components/analytics/AnalyticsHead.tsx` and included in `(site)/layout.tsx`.
 - GSC is added via a verification meta tag when enabled.
 
+If env vars are not present, the components gracefully do not render any scripts/meta tags.
+
 ### Health Check
 
 The application includes a health check route at `/health` that returns a JSON response:
