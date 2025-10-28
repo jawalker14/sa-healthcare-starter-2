@@ -195,6 +195,8 @@ Wiring:
 - GA4 is injected via `app/components/analytics/AnalyticsHead.tsx` and included in `(site)/layout.tsx`.
 - GSC is added via a verification meta tag when enabled.
 
+If env vars are not present, the components gracefully do not render any scripts/meta tags.
+
 ### Health Check
 
 The application includes a health check route at `/health` that returns a JSON response:
@@ -206,6 +208,42 @@ The application includes a health check route at `/health` that returns a JSON r
 
 Ensure that all content adheres to HPCSA and POPIA regulations. The compliance microcopy can be found in `content/partials/compliance.mdx`.
 
+### HPCSA Compliance Checklist
+
+- Avoid superlatives or guarantees (e.g., “best”, “#1”, “guaranteed”, “miracle”).
+- Do not promise outcomes or cures; do not use “before and after” or testimonials.
+- No inducements such as “free consultation” or “lowest price”.
+- Provide balanced, factual information; describe suitability and limitations.
+- Ensure POPIA-aligned handling of personal information.
+
+You can run an automated check locally:
+
+```
+npm run check:compliance
+```
+
+The script scans `content/**/*.mdx` and reports file:line for flagged terms.
+
 ## License
+## Scope, Revisions & Timeline
+
+This template is designed for fast, compliant deployments. A typical engagement includes:
+
+- Scope: setup, brand polish, content entry, booking/maps integration, SEO basics.
+- Revisions: up to 2 rounds of copy/layout refinements within scope.
+- Timeline: approx. 10–14 business days, dependent on content approvals.
+
+Milestones are gated by content handover and approvals. Larger changes or new features may extend timelines.
+
+## How to demo this template
+
+1. Prepare `.env.local` with any available IDs (Calendly, GA4, GSC, WhatsApp, Place ID).
+2. Update `content/data/settings.json` with practice name, contacts, and address.
+3. Run locally and review pages at `/`, `/services`, `/contact`, `/blog`.
+4. Test booking (iframe or mailto fallback) and maps embed.
+5. Inspect SEO: View source on a page with frontmatter Title/Description; check OG/Twitter via social sharing debuggers.
+
+Optional: run `npm run check:compliance` to scan content for prohibited phrases.
+
 
 This project is licensed under the MIT License. See the LICENSE file for details.

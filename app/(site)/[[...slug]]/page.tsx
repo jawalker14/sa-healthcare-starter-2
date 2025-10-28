@@ -1,4 +1,9 @@
+// Why:
+// - Drive page metadata (title/description/OG) from MDX frontmatter
+// - Provide canonical URLs and social cards in App Router
+// - Keep sane defaults and avoid runtime errors
 import React from 'react';
+import type { Metadata } from 'next';
 import Layout from '@/app/components/Layout';
 import { MDXRemote } from 'next-mdx-remote';
 import { getMdxContent } from '@/lib/mdx';

@@ -1,8 +1,14 @@
+// Why:
+// - Provide an accessible, globally mounted WhatsApp CTA that respects env configuration
+// - Guard against rendering when no number is configured
+// - Keep keyboard accessibility with clear aria-label
 import React from 'react';
 import Link from 'next/link';
 
-const WhatsAppCTA: React.FC<{ phone?: string; message?: string }> = ({ phone = 'YOUR_WHATSAPP_NUMBER', message = 'Hello, I would like to get in touch!' }) => {
-    const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+const WhatsAppCTA: React.FC<{ phone?: string; message?: string }> = ({ phone, message = 'Hello, I would like to get in touch!' }) => {
+    const number = phone || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+    if (!number) return null;
+    const href = `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
     return (
         <div className="fixed bottom-4 right-4">
             <Link
