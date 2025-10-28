@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     const url = base ? new URL(`/blog/${params.slug}`, base).toString() : undefined;
     const description = (post.frontmatter?.description as string | undefined) || undefined;
     const ogImage = (post.frontmatter as any)?.ogImage as string | undefined;
+  const ogDefault = base ? `${base}/api/og?title=${encodeURIComponent(post.title)}` : undefined;
     return {
       title: post.title,
       description,
@@ -24,13 +25,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         description,
         url,
         type: 'article',
-        images: ogImage ? [{ url: ogImage }] : undefined,
+    images: ogImage ? [{ url: ogImage }] : ogDefault ? [{ url: ogDefault }] : undefined,
       },
       twitter: {
         card: 'summary_large_image',
         title: post.title,
         description,
-        images: ogImage ? [ogImage] : undefined,
+    images: ogImage ? [ogImage] : ogDefault ? [ogDefault] : undefined,
       },
     };
   } catch {

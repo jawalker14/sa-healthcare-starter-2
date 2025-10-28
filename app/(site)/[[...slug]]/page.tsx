@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug?: st
     const ogImage = (data.frontmatter as any)?.ogImage as string | undefined;
     const base = process.env.NEXT_PUBLIC_SITE_URL;
     const url = base ? new URL((slug && slug.length ? `/${slug.join('/')}` : '/'), base).toString() : undefined;
-    return {
+  const ogDefault = base ? `${base}/api/og?title=${encodeURIComponent(title || settings.practiceName || 'SA Healthcare')}` : undefined;
+  return {
       title: title || undefined,
       description: description || undefined,
       alternates: { canonical: url },
@@ -36,13 +37,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug?: st
         title: title || undefined,
         description: description || undefined,
         url,
-        images: ogImage ? [{ url: ogImage }]: undefined,
+    images: ogImage ? [{ url: ogImage }] : ogDefault ? [{ url: ogDefault }] : undefined,
       },
       twitter: {
         card: 'summary_large_image',
         title: title || undefined,
         description: description || undefined,
-        images: ogImage ? [ogImage] : undefined,
+    images: ogImage ? [ogImage] : ogDefault ? [ogDefault] : undefined,
       },
     };
   } catch {
