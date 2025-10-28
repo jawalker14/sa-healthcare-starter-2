@@ -1,3 +1,7 @@
+// Why:
+// - Add vv color tokens for consistent branding across components
+// - Keep existing brand palette; introduce vv namespace to avoid breaking changes
+// - Enable accessible contrast and shared utilities
 import type { Config } from 'tailwindcss';
 import typography from '@tailwindcss/typography';
 
@@ -19,6 +23,11 @@ const config: Config = {
           slate: '#334155', // slate-700
           slateLight: '#64748B', // slate-500
           white: '#FFFFFF',
+        },
+        vv: {
+          navy: '#27287B',
+          slate: '#3B556B',
+          bg: '#F5F7FA',
         },
       },
       boxShadow: {

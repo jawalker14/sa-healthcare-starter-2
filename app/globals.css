@@ -1,3 +1,8 @@
+/* Why:
+	- Establish consistent base background and text for no CLS with web fonts
+	- Provide accessible link/focus states and container widths
+	- Ensure tokens available across components (brand, vv)
+*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,13 +13,13 @@
 		scroll-behavior: smooth;
 	}
 	body {
-		@apply font-sans text-[17px] leading-7 text-brand-slate bg-white antialiased;
+		@apply font-sans text-[17px] leading-7 text-brand-slate bg-vv-bg antialiased;
 	}
 	::selection {
 		@apply bg-brand-navy text-white;
 	}
 	a {
-		@apply text-brand-navy underline-offset-4 hover:underline focus-visible:underline;
+		@apply text-brand-navy underline-offset-4 hover:underline focus-visible:underline transition-colors duration-200;
 	}
 }
 
