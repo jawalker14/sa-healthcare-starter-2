@@ -6,15 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-  "lint": "eslint .",
-  "check:compliance": "node scripts/check-compliance.mjs",
-  "audit:template": "node scripts/audit-template.mjs"
+    "lint": "eslint .",
+    "check:compliance": "node scripts/check-compliance.mjs",
+    "audit:template": "node scripts/audit-template.mjs"
   },
   "dependencies": {
     "@mdx-js/react": "latest",
     "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "next": "latest",
+    "next": "15.5.8",
     "next-mdx-remote": "^4.4.1",
     "react": "latest",
     "react-dom": "latest",
