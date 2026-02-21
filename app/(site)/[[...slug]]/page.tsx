@@ -16,40 +16,7 @@ import ContactForm from '@/app/components/forms/ContactForm';
 import Section from '@/app/components/ui/Section';
 import Card from '@/app/components/ui/Card';
 import settings from '@/content/data/settings.json';
-import MapEmbed from '@/app/components/map/MapEmbed';
-
-export async function generateMetadata({ params }: { params: Promise<{ slug?: string[] }> }): Promise<Metadata> {
-  const { slug } = await params;
-  const slugPath = !slug || slug.length === 0 ? 'index' : slug.join('/');
-  try {
-    const data = await getMdxContent(slugPath);
-    const title = data.frontmatter?.title as string | undefined;
-    const description = data.frontmatter?.description as string | undefined;
-    const ogImage = (data.frontmatter as any)?.ogImage as string | undefined;
-    const base = process.env.NEXT_PUBLIC_SITE_URL;
-    const url = base ? new URL((slug && slug.length ? `/${slug.join('/')}` : '/'), base).toString() : undefined;
-  const ogDefault = base ? `${base}/api/og?title=${encodeURIComponent(title || settings.practiceName || 'SA Healthcare')}` : undefined;
-  return {
-      title: title || undefined,
-      description: description || undefined,
-      alternates: { canonical: url },
-      openGraph: {
-        title: title || undefined,
-        description: description || undefined,
-        url,
-    images: ogImage ? [{ url: ogImage }] : ogDefault ? [{ url: ogDefault }] : undefined,
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: title || undefined,
-        description: description || undefined,
-    images: ogImage ? [ogImage] : ogDefault ? [ogDefault] : undefined,
-      },
-    };
-  } catch {
-    return {};
-  }
-}
+import BookingWidget from '@/app/components/BookingWidget';
 
 export default async function DynamicPage({ params }: { params: Promise<{ slug?: string[] }> }) {
   const { slug } = await params;
@@ -69,7 +36,7 @@ export default async function DynamicPage({ params }: { params: Promise<{ slug?:
   ContactForm,
   Section,
   Card,
-  MapEmbed,
+  BookingWidget,
   } as const;
 
   return (
